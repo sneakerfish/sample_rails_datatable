@@ -3,4 +3,6 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery -> 
-  $('#contacts').dataTable()
+  $('#contacts').dataTable
+    sPaginationType: "full_numbers"
+    bJQueryUI: true
