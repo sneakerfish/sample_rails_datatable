@@ -6,3 +6,7 @@ jQuery ->
   $('#contacts').dataTable
     sPaginationType: "full_numbers"
     bJQueryUI: true
+    bServerSide: true
+    pProcessing: true
+    sAjaxSource: $('#contacts').data('source')
+

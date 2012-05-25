@@ -6,7 +6,7 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @contacts }
+      format.json { render json: ContactsDatatable.new(view_context) }
     end
   end
 

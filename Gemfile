@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'jasmine'
 gem 'faker'
 gem 'factory_girl'
+gem 'kaminari'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -24,8 +25,6 @@ group :assets do
   gem 'jquery-datatables-rails'
   gem 'jquery-ui-rails'
 end
-
-gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
