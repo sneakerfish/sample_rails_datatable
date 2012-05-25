@@ -7,3 +7,6 @@ AJAX to support the data pagination.
 
 There is a rake task included which will add 100 random entries to the contacts table. It uses the faker
 gem to generate the fake data.
+  
+  rake contacts:add_random
+
