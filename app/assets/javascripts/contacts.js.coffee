@@ -3,10 +3,14 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery -> 
-  $('#contacts').dataTable
+  oTable = $('#contacts').dataTable
     sPaginationType: "full_numbers"
     bJQueryUI: true
     bServerSide: true
     pProcessing: true
     sAjaxSource: $('#contacts').data('source')
 
+  $('#contacts tbody').delegate('tr', 'click', (e) ->                        
+	# TODO: Add ability to edit in place with a form. OR delete with a button.
+    $(this).addClass('row_selected').siblings().removeClass('row_selected')
+    window.location = "/contacts/#{ $(this)[0].id }/edit" )

@@ -10,7 +10,7 @@ class ContactsDatatable
     {
         sEcho: params[:sEcho].to_i,
         iTotalRecords: Contact.count,
-        iTotalDisplayRecords: get_data.count,
+        iTotalDisplayRecords: get_data  .count,
         aaData: format_data
       }
   end
@@ -19,12 +19,12 @@ class ContactsDatatable
       
   def format_data
     get_data.order(order).page(page).per(per_page).map do |contact|
-      [ contact.first_name,
-        contact.last_name,
-        contact.email,
-        contact.phone,
-        contact.company
-        ]
+       { "0" =>  contact.first_name,
+         "1" => contact.last_name,
+         "2" => contact.email,
+         "3" => contact.phone,
+         "4" => contact.company,
+         "DT_RowId" =>  contact.id } 
       end
   end
   
