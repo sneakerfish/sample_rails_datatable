@@ -12,7 +12,7 @@ gem "puma", ">= 5.0"
 gem "importmap-rails"
 # json 3.x removed the positional options argument that Rails 8.1.3.1 still passes to
 # JSON.parse, which breaks reading the session cookie. Drop this pin once Rails supports json 3.
-gem "json", "~> 2.21"
+gem "json", "~> 3.0"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
