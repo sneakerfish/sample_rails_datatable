@@ -1,17 +1,23 @@
-<h1>Listing contacts</h1>
+<p class="notice"><%= notice %></p>
 
-<table id="contacts" class="display" data-source="<%= contacts_url(format: "json") %>">
-<thead>
-   <tr>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Email</th>
-    <th>Phone</th>
-    <th>Company</th>
-  </tr>
-</thead>
-<tbody></tbody></table>
+<% content_for :title, "Contacts" %>
 
-<br />
+<h1>Contacts</h1>
 
-<%= link_to 'New Contact', new_contact_path %>
+<p class="hint">Click a column header to sort (shift-click to sort by several), type in the search box to filter, and click a row to edit it. Sorting, searching and paging all happen on the server.</p>
+
+<%# The body is left empty: app/javascript/application.js turns this into a DataTable that loads rows from data-source. %>
+<table id="contacts" class="display" data-source="<%= contacts_path(format: :json) %>">
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Company</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<p><%= link_to "New contact", new_contact_path %></p>

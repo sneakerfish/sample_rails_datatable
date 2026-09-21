@@ -1,30 +1,12 @@
-<p id="notice"><%= notice %></p>
+<% content_for :title, "Showing contact" %>
 
-<p>
-  <b>First name:</b>
-  <%= @contact.first_name %>
-</p>
+<p class="notice"><%= notice %></p>
 
-<p>
-  <b>Last name:</b>
-  <%= @contact.last_name %>
-</p>
+<%= render @contact %>
 
-<p>
-  <b>Email:</b>
-  <%= @contact.email %>
-</p>
+<div>
+  <%= link_to "Edit this contact", edit_contact_path(@contact) %> |
+  <%= link_to "Back to contacts", contacts_path %>
 
-<p>
-  <b>Phone:</b>
-  <%= @contact.phone %>
-</p>
-
-<p>
-  <b>Company:</b>
-  <%= @contact.company %>
-</p>
-
-
-<%= link_to 'Edit', edit_contact_path(@contact) %> |
-<%= link_to 'Back', contacts_path %>
+  <%= button_to "Destroy this contact", @contact, method: :delete %>
+</div>

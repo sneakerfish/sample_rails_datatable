@@ -1,18 +1,22 @@
 namespace :contacts do
-  desc "Add 100 random contacts to the database using Faker"
-  task :add_random => :environment do
-    100.times do |i|
-      c = Contact.new
-      c.first_name = Faker::Name.first_name
-      c.last_name = Faker::Name.last_name
-      c.phone = Faker::PhoneNumber.phone_number
-      if rand > 0.6                             # About 40% will be free email addresses
-        c.email = Faker::Internet.free_email(c.name)
-      else
-        c.email = Faker::Internet.email(c.name)
-      end
-      c.company = Faker::Company.name
-      c.save
+  desc "Add random contacts using Faker (COUNT=100 by default)"
+  task add_random: :environment do
+    count = Integer(ENV.fetch("COUNT", 100))
+
+    count.times do
+      first_name = Faker::Name.first_name
+      last_name = Faker::Name.last_name
+      name = "#{first_name} #{last_name}"
+
+      Contact.create!(
+        first_name: first_name,
+        last_name: last_name,
+        phone: Faker::PhoneNumber.phone_number,
+        email: Faker::Internet.email(name: name),
+        company: Faker::Company.name
+      )
     end
-  end  
-end  
+
+    puts "Added #{count} contacts (#{Contact.count} total)."
+  end
+end

@@ -1,0 +1,23 @@
+# Run the demo without installing Ruby locally:
+#
+#   docker compose up
+#
+# then open http://localhost:3000. The first start installs gems and creates and
+# seeds the SQLite database (storage/development.sqlite3), so it takes a minute.
+services:
+  web:
+    image: ruby:3.4
+    working_dir: /app
+    volumes:
+      - .:/app
+      - bundle:/usr/local/bundle
+    ports:
+      - "3000:3000"
+    command: >
+      sh -c "bundle install &&
+             bin/rails db:prepare &&
+             rm -f tmp/pids/server.pid &&
+             bin/rails server -b 0.0.0.0"
+
+volumes:
+  bundle:
