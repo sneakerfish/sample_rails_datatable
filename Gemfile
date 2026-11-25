@@ -10,9 +10,6 @@ gem "sqlite3", ">= 2.1"
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
-# json 3.x removed the positional options argument that Rails 8.1.3.1 still passes to
-# JSON.parse, which breaks reading the session cookie. Drop this pin once Rails supports json 3.
-gem "json", "~> 3.1"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
